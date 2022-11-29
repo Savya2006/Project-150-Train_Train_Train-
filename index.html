@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:#CBF0FF">
+    <a-camera wasd-controls-enabled="false" position="0 10 35"></a-camera>
+
+    <!--Asset Management-->
+    <a-assets>  
+      <a-asset-item id="train-obj" src="Train/tinker.obj"></a-asset-item>
+      <a-asset-item id="train-mtl" src="Train/obj.mtl"></a-asset-item>
+      <a-asset-item id="track" src="train_track/scene.gltf"></a-asset-item>
+    </a-assets>    
+    
+    <!--Circular Plane-->
+    <a-circle id="floor" position="-0.4 -0.76 -25" rotation="-90 0 0" radius="500" shadow="receive: true" visible="true" src="images/Grass.jpg"></a-circle>
+    <a-box id="background-scene" src="images/BG.jpg" position="0 25 -20" width="185" height="55">  </a-box>
+
+    <!--Track-->     
+     <a-entity scale="5 5 5" gltf-model="#track" position="40 0 -9" shadow="cast:true;" rotation="0 -90 0"> </a-entity>  
+
+    <!--OBJ Models-->   
+      <a-entity animation="property: position; from: 60 0 0; to: -100 ;easing:linear; loop: true; dur: 15000"> 
+        <a-entity obj-model="obj: #train-obj; mtl: #train-mtl"  position="10 1 -12" rotation="-90 -90 90" scale="0.65 0.65 0.65 "></a-entity>
+      </a-entity>
+
+  </a-scene>
+</body>
+</html>
